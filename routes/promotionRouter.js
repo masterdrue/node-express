@@ -27,6 +27,12 @@ promotionRouter.route('/')
 
 promotionRouter.route('/:promotionId')
 
+.all((req, res, next) => {
+    res.status = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    next();
+})
+
 .get((req, res) => {
     res.end(`Will send details of the promotion: ${req.params.promotionId} to you`);
 })
